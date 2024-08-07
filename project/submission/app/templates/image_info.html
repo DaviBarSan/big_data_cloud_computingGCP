@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <meta charset="utf-8">
+        <title>BDCC project</title>
+        <link rel="stylesheet" href="/static/style.css">
+</head>
+
+{% extends 'general-template.html'  %}
+{% block content %}
+
+
+
+    {% for result in data.results %}
+        {% set classes, relations, image_id = result[2].split(','), result[1].split(','), result[0] %}
+
+<h1>{{image_id}}</h1>
+
+
+
+
+<table>
+    <tbody><tr>
+        <th>Classes</th>
+        <th>Relations</th>
+        <th>Image</th>
+    </tr>
+
+    <tr>
+        <td>
+
+
+                        {% for class in classes%}
+                <a href="/image_search?description={{ class }}">{{class}}</a>
+                    <br>
+                        {% endfor %}
+            <br>
+        </td>
+
+        </td>
+        <td>
+                        {% set cases = relations %}
+                        {% for case in cases%}
+                             {% set word = case.split(' ') %}
+                            <a href="/relation_search?relation={{word[1]}}&class1={{word[0]}}&class2={{word[2]}}">
+                                 <br>
+                            {{ case }}
+                        {% endfor %}
+
+
+            </a>
+
+            <br>
+
+
+        </td>
+        <td>
+            <a href="https://storage.googleapis.com/bdcc_open_images_dataset/images/{{image_id}}.jpg">
+                <img width="300" src="https://storage.googleapis.com/bdcc_open_images_dataset/images/{{image_id}}.jpg">
+            </a>
+            {% endfor %}
+
+        </td>
+    </tr>
+</tbody></table>
+
+{% endblock %}

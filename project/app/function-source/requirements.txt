@@ -1,0 +1,8 @@
+Pillow
+tensorflow
+numpy
+zipfile36
+functions-framework==3.*
+wget
+requests
+google.cloud.storage

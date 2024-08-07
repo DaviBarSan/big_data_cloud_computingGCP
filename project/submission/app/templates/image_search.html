@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <meta charset="utf-8">
+        <title>BDCC project</title>
+        <link rel="stylesheet" href="/static/style.css">
+
+</head>
+<body>
+
+<br>
+<a href="javascript:history.back()">&lt; Go Back</a>
+&nbsp;
+<a href="/">Start page</a>
+<br>
+
+<h1>{{data.results[0]}}</h1>
+
+<table>
+    <tr>
+        <th>ImageId</th>
+        <th>Image</th>
+    </tr>
+    {% for result in data.results %}
+    <tr>
+        <td>
+            <a href="/image_info?image_id={{ result[1] }}">{{ result[1] }}</a>
+        </td>
+        <td>
+            <a href="https://storage.googleapis.com/bdcc_open_images_dataset/images/{{result[1]}}.jpg">
+                <img width="300" src="https://storage.googleapis.com/bdcc_open_images_dataset/images/{{result[1]}}.jpg">
+            </a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+
+</body>
+</html>

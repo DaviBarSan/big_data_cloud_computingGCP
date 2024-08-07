@@ -1,0 +1,10 @@
+Cat
+Airplane
+Wheelchair
+Cart
+Motorcycle
+Rifle
+Broccoli
+Otter
+Wine glass
+Hamburger

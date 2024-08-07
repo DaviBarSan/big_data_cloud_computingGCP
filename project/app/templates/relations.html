@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <meta charset="utf-8">
+        <title>BDCC project</title>
+        <link rel="stylesheet" href="/static/style.css">
+
+</head>
+<body>
+
+<br>
+<a href="javascript:history.back()">&lt; Go Back</a>
+&nbsp;
+<a href="/">Start page</a>
+<br>
+
+<h1>Relations</h1>
+
+<table>
+    <tr>
+        <th>Relation</th>
+        <th>Image count</th>
+    </tr>
+    {% for result in data.results %}
+    <tr>
+        <td>
+            <a href="/relation_search?relation={{result[0]}}">{{result[0]}}</a>
+        </td>
+        <td>
+                {{result[1]}}
+        </td>
+    </tr>
+    {% endfor %}
+
+</table>
+</body>
+
+
+
